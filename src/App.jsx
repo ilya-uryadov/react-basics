@@ -1,5 +1,5 @@
 import React from 'react';
-import todos from './todos';
+//import todos from './todos';
 import Header from './Components/Header';
 import ToDo from './Components/ToDo';
 
@@ -10,8 +10,9 @@ function App(props) {
 
             <section className="todo-list">
 
-                <ToDo title= {'Изучить JS'} complited={true} />
-                <ToDo title= {'Изучить React'} complited={false} />
+                {props.todos.map(todos => 
+                    <ToDo key={todos.id} title= {todos.title} complited={todos.completed} /> )}
+
                  
             </section>
         </main>
