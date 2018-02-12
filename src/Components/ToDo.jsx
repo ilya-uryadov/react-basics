@@ -5,7 +5,7 @@ import Button from "./Button";
 
 function Todo(props) {
  return (
-    <div className= {props.complited ? 'todo complited' : 'todo'}>
+    <div className= {props.complited ? 'todo complited' : 'todo'mp}>
                     <CheckBox checked= {props.complited} />
 
                     <span className="todo-title">{props.title}</span>
