@@ -5,8 +5,8 @@ import Button from "./Button";
 
 function Todo(props) {
  return (
-    <div className= {props.complited ? 'todo completed' : 'todo'}>
-                    <CheckBox  />
+    <div className= {props.completed ? 'todo completed' : 'todo'}>
+                    <CheckBox initiallyChecked={props.completed}  />
 
                     <span className="todo-title">{props.title}</span>
 
@@ -17,7 +17,7 @@ function Todo(props) {
 
 Todo.propTypes = {
     title: PropTypes.string.isRequired,
-    complited: PropTypes.bool.isRequired
+    completed: PropTypes.bool.isRequired
 }
 
 export default Todo;

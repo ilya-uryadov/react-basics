@@ -11,7 +11,7 @@ function App(props) {
             <section className="todo-list">
 
                 {props.todos.map(todos => 
-                    <ToDo key={todos.id} title= {todos.title} complited={todos.completed} /> )}
+                    <ToDo key={todos.id} title= {todos.title} completed={todos.completed} /> )}
 
                  
             </section>
