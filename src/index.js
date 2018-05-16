@@ -7,7 +7,7 @@ import todos from './todos';
 
 App.propTypes = {
     title: PropTypes.string,
-    todos: PropTypes.arrayOf(PropTypes.shape({
+    initialData: PropTypes.arrayOf(PropTypes.shape({
         id:PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         completed: PropTypes.bool.isRequired
@@ -19,4 +19,4 @@ App.defaultProps = {
     title: 'React ToDo'
 };
 
-ReactDOM.render(<App todos={todos} />, document.getElementById('root'));
+ReactDOM.render(<App initialData={todos} />, document.getElementById('root'));
