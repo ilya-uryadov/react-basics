@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 function Button (props) {
     return (
-        <botton className={props.className}>
+        <button className={props.className}>
             <i className="material-icons">{props.icon}</i>
-        </botton>
+        </button>
     );  
 }
 Button.propTypes = {
