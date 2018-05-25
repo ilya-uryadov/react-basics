@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import todos from './todos';
+//import ReactDOM from 'react-dom';
+//import todos from './todos';
 import Header from './Components/Header';
 import ToDo from './Components/ToDo';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import Form from './Components/Form';
 
 class App extends React.Component {
@@ -37,12 +37,12 @@ class App extends React.Component {
     }
 
     handleStatusChange(id) {
-                let todos2 = this.state.todos.map( todo => {
-            if (todo.id === id) {
-                todo.completed = !todo.completed;
-            }
-            return todo;
-        });
+            let todos = this.state.todos.map( todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            });
         this.setState({todos:todos});
     }
 

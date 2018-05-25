@@ -38,7 +38,7 @@ class Todo extends React.Component{
         return(
             <form className="todo-edit-form" onSubmit={this.handleSubmit}>
                 <input type="text" ref="title" defaultValue={this.props.title} />
-                <Button className="save icon" icon="save" type="submit" onClick={this.handleSubmit()}/>
+                <Button className="save icon" icon="save" type="submit" onClick={this.handleSubmit}/>
             </form>
             
         );
