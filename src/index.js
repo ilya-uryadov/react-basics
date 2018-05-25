@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import App from './App';
 //import ToDo from './Components/ToDo';
-<<<<<<< HEAD
-import todos from './todos';
-=======
 import todos from './todos';
 
 App.propTypes = {
@@ -23,4 +20,3 @@ App.defaultProps = {
 };
 
 ReactDOM.render(<App initialData={todos} />, document.getElementById('root'));
->>>>>>> components

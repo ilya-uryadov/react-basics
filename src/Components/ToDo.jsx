@@ -3,33 +3,63 @@ import PropTypes from "prop-types";
 import CheckBox from "./CheckBox";
 import Button from "./Button";
 
-function Todo(props) {
-<<<<<<< HEAD
- return (
-    <div className= {props.completed ? 'todo completed' : 'todo'}>
-                    <CheckBox checked = {props.completed}  />
-=======
->>>>>>> components
+class Todo extends React.Component{
+    constructor (props){
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
-    function hendleChange() {
-        props.onStatusChange(props.id)
+        this.state = {
+            editing:false 
+            //editing:true 
+        };
     }
 
-    return (
-        <div className= {props.completed ? 'todo completed' : 'todo'}>
-                        <CheckBox checked={props.completed} onChange={hendleChange} />
+    handleSubmit(event){
+        event.preventDefault();
+        let title = this.refs.title.value;
+        this.props.onEdit(this.props.id, title);
+        this.setState({ editing: false})
+    }
 
-                        <span className="todo-title">{props.title}</span>
+    renderDisplay(){
+        return(
+            <div className={this.props.completed ? 'todo completed' : 'todo'}>
+                <CheckBox checked={this.props.completed} onChange={() => this.props.onStatusChange(this.props.id)} />
 
-                        <Button className={"delete icon"} icon = {'delete'} />
-        </div>
-    );   
+                <span className="todo-title">{this.props.title}</span>
+                <Button className="edit icon" icon="edit" onClick={() => this.setState({ editing:true})}/>
+                <Button className={"delete icon"} icon={'delete'} onClick={() => this.props.onDelete(this.props.id)} />
+            </div>
+
+        );
+    }
+
+    renderForm(){
+        return(
+            <form className="todo-edit-form" onSubmit={this.handleSubmit}>
+                <input type="text" ref="title" defaultValue={this.props.title} />
+                <Button className="save icon" icon="save" type="submit" onClick={this.handleSubmit()}/>
+            </form>
+            
+        );
+    }
+
+    render(){
+
+        return this.state.editing ? this.renderForm() : this.renderDisplay(); 
+       
+
+    }
 }
+
+
 
 Todo.propTypes = {
     title: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
-    onStatusChange: PropTypes.func.isRequired
+    onStatusChange: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired
 }
 
 export default Todo;
