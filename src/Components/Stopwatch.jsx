@@ -5,11 +5,11 @@ import Button from "./Button";
 class Stopwatch extends React.Component {
     constructor(props){
         super(props);
-
+        
         this.state= {
-            runing:false,
-            elapsed:0,
-            lastTick:0
+            runing : false,
+            elapsed : 0,
+            lastTick : 0
         };
 
         this.handlePause = this.handlePause.bind(this);
@@ -18,36 +18,35 @@ class Stopwatch extends React.Component {
     }
 
     componentDidMount(){
-        this.interval = setInterval(this.tick,1000);
+        this.interval = setInterval(this.tick, 1000);
     }
 
     tick(){
-        console.log(Date.now());
         if (this.state.runing) {
-            let now = Date.now();
-            let diff = now-this.state.lastTick;
-
-            this.setState({
-                elapsed: this.state.elapsed + diff,
-                lastTick: now
-            });
-        }
+        //  console.log(Date.now());
+        //  let now = Date.now();
+        //  let diff = now - this.state.lastTick;
+        //  this.setState({
+        //       elapsed: this.state.elapsed + diff,
+        //        lastTick: now
+        //  });
+        };
     }
 
     handleStart(){
         this.setState({
-            runing:true,
+            runing: true,
             lastTick: Date.now()
         });
     }
 
     handlePause(){
-        this.setState({runing:false});
+        this.setState({runing: false});
     }
 
     handleStop(){
         this.setState({
-            runing:false,
+            runing: false,
             elapst: 0,
             lastTick: 0 
         });
