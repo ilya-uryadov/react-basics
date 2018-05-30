@@ -15,6 +15,7 @@ class Stopwatch extends React.Component {
         this.handlePause = this.handlePause.bind(this);
         this.handleStart = this.handleStart.bind(this);
         this.handleStop = this.handleStop.bind(this);
+        this.tick = this.tick.bind(this);
     }
 
     componentDidMount(){
@@ -22,14 +23,15 @@ class Stopwatch extends React.Component {
     }
 
     tick(){
+        
         if (this.state.runing) {
-        //  console.log(Date.now());
-        //  let now = Date.now();
-        //  let diff = now - this.state.lastTick;
-        //  this.setState({
-        //       elapsed: this.state.elapsed + diff,
-        //        lastTick: now
-        //  });
+            //console.log(Date.now());
+            let now = Date.now();
+            let diff = now - this.state.lastTick;
+            this.setState({
+                elapsed: this.state.elapsed + diff,
+                lastTick: now
+          });
         };
     }
 
@@ -58,7 +60,7 @@ class Stopwatch extends React.Component {
         let seconds = totalSeconds % 60;
 
         //return '${minutes > 9 ? minutes : '0' + minutes}:${seconds >9 ? seconds : '0' + seconds}';
-        return seconds;
+        return ''+(minutes > 9 ? minutes : '0' + minutes)+':'+(seconds > 9 ? seconds : '0' + seconds);
     }
 
     render(){
@@ -66,7 +68,7 @@ class Stopwatch extends React.Component {
 
         return(
             <section className="stopwatch">
-                <div className="stopwatch-time">00:23</div>
+                <div className="stopwatch-time">{time}</div>
                 
                 <div className="stopwatch=contols">
                     {this.state.runing ?

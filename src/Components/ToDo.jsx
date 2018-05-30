@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CheckBox from "./CheckBox";
 import Button from "./Button";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Todo extends React.Component{
     constructor (props){
@@ -12,6 +13,14 @@ class Todo extends React.Component{
             editing:false 
             //editing:true 
         };
+    }
+
+    componentDidUpdate(prevProps,prevState){
+        if (this.state.editing) {
+            this.refs.title.focus();
+            this.refs.title.select();
+        }
+
     }
 
     handleSubmit(event){
